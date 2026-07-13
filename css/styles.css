@@ -273,7 +273,38 @@ footer{padding:50px 0 40px;border-top:1px solid var(--line);}
 .footer-links a:hover{color:var(--blue);}
 .footer-note{font-size:12.5px;color:var(--steel);margin-top:18px;}
 
+/* CALL FLOW (animated stepper) */
+.cf-track{display:flex;justify-content:space-between;position:relative;margin-bottom:26px;}
+.cf-track::before{content:'';position:absolute;top:20px;left:60px;right:60px;height:2px;background:var(--line);}
+.cf-node{background:none;border:none;cursor:pointer;text-align:center;position:relative;z-index:2;width:20%;font-family:inherit;padding:0;}
+.cf-dot{
+  width:40px;height:40px;border-radius:50%;
+  background:#fff;border:2px solid var(--line);color:var(--steel);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 10px;font-size:13px;font-weight:500;
+  transition:all .25s ease;
+}
+.cf-label{display:block;font-size:12.5px;font-weight:600;color:var(--steel);transition:color .25s ease;}
+.cf-node.done .cf-dot{border-color:var(--blue);color:var(--blue);}
+.cf-node.active .cf-dot{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 0 0 5px rgba(27,75,143,0.15);}
+.cf-node.active .cf-label{color:var(--ink);}
+.cf-panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:32px;}
+.cf-stage{display:none;}
+.cf-stage.active{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;animation:fadeUp .4s ease;}
+.cf-tag{display:inline-block;font-size:11px;letter-spacing:0.08em;color:var(--blue);background:rgba(27,75,143,0.08);padding:5px 10px;border-radius:6px;margin-bottom:12px;}
+.cf-stage h4{font-size:20px;margin-bottom:8px;}
+.cf-stage p{font-size:14.5px;color:var(--steel);}
+.cf-quote{background:var(--paper);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:18px 20px;font-size:14.5px;color:var(--ink);}
+.cf-quote .label{display:block;font-size:10px;letter-spacing:0.08em;color:var(--steel);margin-bottom:6px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
 @media(max-width:880px){
+  .cf-track{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px;}
+  .cf-track::before{display:none;}
+  .cf-node{display:flex;align-items:center;gap:10px;text-align:left;width:auto;}
+  .cf-dot{margin:0;flex:none;width:34px;height:34px;font-size:12px;}
+  .cf-stage.active{grid-template-columns:1fr;gap:18px;}
+  .cf-panel{padding:24px;}
   .nav-links{display:none;}
   .menu-btn{display:block;}
   .hero-grid{grid-template-columns:1fr;}
