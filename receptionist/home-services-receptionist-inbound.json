@@ -24,6 +24,9 @@
         "transfer_destination": {
           "type": "predefined",
           "number": "[YOUR_TRANSFER_PHONE_NUMBER]"
+        },
+        "transfer_option": {
+          "type": "cold_transfer"
         }
       },
       {
